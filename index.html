@@ -11,6 +11,57 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles for contact note */
+        .contact-note {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .contact-note p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-buttons .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-buttons .btn {
+                width: 200px;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
