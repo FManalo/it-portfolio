@@ -24,7 +24,7 @@
         }
         
         .contact-note p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--text-secondary);
             font-size: 16px;
             line-height: 1.6;
@@ -32,33 +32,65 @@
         
         .contact-buttons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
         
         .contact-buttons .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 30px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 500;
+            font-size: 16px;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            min-width: 160px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-buttons .btn-primary {
+            background: var(--accent-primary);
+            color: white;
+        }
+        
+        .contact-buttons .btn-primary:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .contact-buttons .btn-secondary {
+            background: #0077b5;
+            color: white;
+        }
+        
+        .contact-buttons .btn-secondary:hover {
+            background: #005885;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         
         @media (max-width: 768px) {
             .contact-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
             
             .contact-buttons .btn {
-                width: 200px;
+                width: 220px;
                 justify-content: center;
+            }
+            
+            .contact-note {
+                padding: 25px 20px;
             }
         }
     </style>
@@ -268,16 +300,35 @@
             </div>
             
             <div class="contact-form">
-                <div class="contact-note">
-                    <p><strong>Note:</strong> This is a static portfolio hosted on GitHub Pages. For inquiries, please contact me directly via email or LinkedIn.</p>
-                    <div class="contact-buttons">
-                        <a href="mailto:francesmanalo12@gmail.com" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i> Send Email
-                        </a>
-                        <a href="https://linkedin.com/in/frances-manalo-270687275" target="_blank" class="btn btn-secondary">
-                            <i class="fab fa-linkedin"></i> LinkedIn
-                        </a>
+                <form action="#" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or inquiry..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                
+                <!-- Note about static hosting -->
+                <div class="form-note" style="margin-top: 20px; padding: 15px; background: var(--bg-secondary); border-radius: 8px; text-align: center;">
+                    <p style="margin: 0; color: var(--text-secondary); font-size: 14px;">
+                        <i class="fas fa-info-circle"></i> This form will open your email client to send the message.
+                    </p>
                 </div>
             </div>
         </div>
@@ -327,5 +378,22 @@
 
     <!-- JavaScript -->
     <script src="assets/js/script.js"></script>
+    <script>
+        // Handle contact form submission for static site
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link with form data
+            const mailtoLink = `mailto:francesmanalo12@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+        });
+    </script>
 </body>
 </html>
