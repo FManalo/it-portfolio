@@ -135,6 +135,11 @@ include_once 'includes/header.php';
                             <div class="photo-tags">
                                 <span class="tag">Dart</span>
                                 <span class="tag">Firebase</span>
+                                <span class="tag">SMS Alert</span>
+                                <span class="tag">Realtime Location Tracking</span>
+                                <span class="tag">Audio Recording</span>
+                                <span class="tag">Secured QR Code</span>
+                                <span class="tag">Emergency reponse</span>
                             </div>
                             <div class="photo-buttons">
                                 
